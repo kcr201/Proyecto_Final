@@ -281,9 +281,29 @@ public class Panel_acceso extends javax.swing.JFrame {
                 Logger.getLogger(Panel_acceso.class.getName()).log(Level.SEVERE, null, ex);
             }
             JOptionPane.showMessageDialog(null,"CODIGO CORRECTO");
+            try {
+                arduino.sendData("0");
+            } catch (Exception ex) {
+                Logger.getLogger(Panel_acceso.class.getName()).log(Level.SEVERE, null, ex);
+            }
             this.contrasena.setText("");}
-        else{JOptionPane.showMessageDialog(null,"CODIGO INCORRECTO");
-        this.contrasena.setText("");}  
+        
+        else
+        {try {
+                arduino.sendData("2");
+            } catch (Exception ex) {
+                Logger.getLogger(Panel_acceso.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            JOptionPane.showMessageDialog(null,"CODIGO INCORRECTO");
+            try {
+                arduino.sendData("0");
+            } catch (Exception ex) {
+                Logger.getLogger(Panel_acceso.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        this.contrasena.setText("");
+        
+        } 
+        
         }
         
     }//GEN-LAST:event_enterActionPerformed
