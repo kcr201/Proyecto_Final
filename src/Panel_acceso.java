@@ -4,7 +4,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
-//Comentario de prueba
+
 public class Panel_acceso extends javax.swing.JFrame {
     public Panel_acceso() {
         initComponents();
