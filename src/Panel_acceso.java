@@ -1,13 +1,24 @@
 
 import static java.awt.Image.SCALE_DEFAULT;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import panamahitek.Arduino.PanamaHitek_Arduino;
 
 public class Panel_acceso extends javax.swing.JFrame {
+    
+    PanamaHitek_Arduino arduino = new PanamaHitek_Arduino();
+    
     public Panel_acceso() {
         initComponents();
+        try {
+            arduino.arduinoTX("COM5", 9600);
+        } catch (Exception ex) {
+            Logger.getLogger(Panel_acceso.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.setLocationRelativeTo(null);
         ImageIcon icon;
         icon = new ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"));
@@ -262,7 +273,13 @@ public class Panel_acceso extends javax.swing.JFrame {
         if("".equals(cadena)){
             JOptionPane.showMessageDialog(null,"ESCRIBE UN CODIGO");}
         else{
-        if(cadena.equals(cadena_2)){
+        if(cadena.equals(cadena_2))
+        {
+            try {
+                arduino.sendData("1");
+            } catch (Exception ex) {
+                Logger.getLogger(Panel_acceso.class.getName()).log(Level.SEVERE, null, ex);
+            }
             JOptionPane.showMessageDialog(null,"CODIGO CORRECTO");
             this.contrasena.setText("");}
         else{JOptionPane.showMessageDialog(null,"CODIGO INCORRECTO");
