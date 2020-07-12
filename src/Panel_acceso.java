@@ -277,6 +277,7 @@ public class Panel_acceso extends javax.swing.JFrame {
         if("".equals(cadena)){
             JOptionPane.showMessageDialog(null,"ESCRIBE UN CODIGO");}
         
+        
      else
      {
        
