@@ -9,17 +9,26 @@ import javax.swing.JOptionPane;
 import panamahitek.Arduino.PanamaHitek_Arduino;
 
 public class Panel_acceso extends javax.swing.JFrame {
+    PanamaHitek_Arduino arduino = new PanamaHitek_Arduino();
     int contador = 0;
     
-    PanamaHitek_Arduino arduino = new PanamaHitek_Arduino();
+   
+    
+    
+    
+   
+   
     
     public Panel_acceso() {
         initComponents();
         try {
             arduino.arduinoTX("COM5", 9600);
+            
         } catch (Exception ex) {
             Logger.getLogger(Panel_acceso.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        
         this.setLocationRelativeTo(null);
         ImageIcon icon;
         icon = new ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"));
@@ -323,21 +332,28 @@ public class Panel_acceso extends javax.swing.JFrame {
                 
                         if (contador==3) 
                             {
-                                try {
-                                    arduino.sendData("3");
-                                } catch (Exception ex) {
-                                    Logger.getLogger(Panel_acceso.class.getName()).log(Level.SEVERE, null, ex);
-                                }
+                                do
+                                            {
+                                            try {
+                                                arduino.sendData("3");
+                                            } catch (Exception ex) {
+                                                Logger.getLogger(Panel_acceso.class.getName()).log(Level.SEVERE, null, ex);
+                                            }
 
-                                JOptionPane.showMessageDialog(null,"ALARMA");
+                                            JOptionPane.showMessageDialog(null,"ALARMA");
 
-                                this.contrasena.setText("");
-                                if(contador==3)
-                                    {  
-                                         contador=0;
-                                    }
-                            }                    
-        }       
+                                            this.contrasena.setText("");
+                                            
+              
+                                }   while(cadena.equals(cadena_2));
+                                
+                                
+                                 contador=0;
+                             }
+                       
+                        
+        }
+        
      }
     }//GEN-LAST:event_enterActionPerformed
 
