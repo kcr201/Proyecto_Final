@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import panamahitek.Arduino.PanamaHitek_Arduino;
 
 public class Panel_acceso extends javax.swing.JFrame {
+    int contador = 0;
     
     PanamaHitek_Arduino arduino = new PanamaHitek_Arduino();
     
@@ -270,87 +271,73 @@ public class Panel_acceso extends javax.swing.JFrame {
         
         String cadena = String.valueOf(contrasena.getPassword());
         String cadena_2="1234";
-        int contador=0;
+        
         
         
         if("".equals(cadena)){
             JOptionPane.showMessageDialog(null,"ESCRIBE UN CODIGO");}
-        else{
+        
+     else
+     {
+       
         if(cadena.equals(cadena_2))
-        {
+        {          
             try {
                 arduino.sendData("1");
             } catch (Exception ex) {
                 Logger.getLogger(Panel_acceso.class.getName()).log(Level.SEVERE, null, ex);
             }
+           
             JOptionPane.showMessageDialog(null,"CODIGO CORRECTO");
+           
+            this.contrasena.setText("");
+            
             try {
                 arduino.sendData("0");
             } catch (Exception ex) {
                 Logger.getLogger(Panel_acceso.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            this.contrasena.setText("");
-        }
+            }         
+        }  
+        
+        
         
         if(!cadena.equals(cadena_2))
-        {
-            do
-        {        
-            
-        {try {
+        {          
+            try {
                 arduino.sendData("2");
             } catch (Exception ex) {
                 Logger.getLogger(Panel_acceso.class.getName()).log(Level.SEVERE, null, ex);
             }
-        
+           
             JOptionPane.showMessageDialog(null,"CODIGO INCORRECTO");
+           
+            this.contrasena.setText("");
             try {
                 arduino.sendData("0");
             } catch (Exception ex) {
                 Logger.getLogger(Panel_acceso.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        this.contrasena.setText("");
-        contador++;
-        }
-        
-        
-        }
-        
-        while(contador<3);
-        }
-        }
-        
-        if (contador==3)
-        {
-            try {
-                arduino.sendData("3");
-            } catch (Exception ex) {
-                Logger.getLogger(Panel_acceso.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            JOptionPane.showMessageDialog(null,"ALARMA ACTIVADA, INGRESE LA CONTRASEÑA CORRECTA");
+            } 
             
-        }
-         
-        
-        
-        
-        
-        
+          contador++; 
                 
-                    
-                
-        
-        
-        
-        
-        
-         
-        
-        
-  
+                        if (contador==3) 
+                            {
+                                try {
+                                    arduino.sendData("3");
+                                } catch (Exception ex) {
+                                    Logger.getLogger(Panel_acceso.class.getName()).log(Level.SEVERE, null, ex);
+                                }
 
+                                JOptionPane.showMessageDialog(null,"ALARMA");
 
-        
+                                this.contrasena.setText("");
+                                if(contador==3)
+                                    {  
+                                         contador=0;
+                                    }
+                            }                    
+        }       
+     }
     }//GEN-LAST:event_enterActionPerformed
 
     public static void main(String args[]) {
@@ -378,10 +365,8 @@ public class Panel_acceso extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Panel_acceso().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Panel_acceso().setVisible(true);
         });
     }
     public Icon setIcono(String url, JButton btn)
