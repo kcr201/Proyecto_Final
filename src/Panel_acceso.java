@@ -270,6 +270,9 @@ public class Panel_acceso extends javax.swing.JFrame {
         
         String cadena = String.valueOf(contrasena.getPassword());
         String cadena_2="1234";
+        int contador=0;
+        
+        
         if("".equals(cadena)){
             JOptionPane.showMessageDialog(null,"ESCRIBE UN CODIGO");}
         else{
@@ -286,14 +289,20 @@ public class Panel_acceso extends javax.swing.JFrame {
             } catch (Exception ex) {
                 Logger.getLogger(Panel_acceso.class.getName()).log(Level.SEVERE, null, ex);
             }
-            this.contrasena.setText("");}
+            this.contrasena.setText("");
+        }
         
-        else
+        if(!cadena.equals(cadena_2))
+        {
+            do
+        {        
+            
         {try {
                 arduino.sendData("2");
             } catch (Exception ex) {
                 Logger.getLogger(Panel_acceso.class.getName()).log(Level.SEVERE, null, ex);
             }
+        
             JOptionPane.showMessageDialog(null,"CODIGO INCORRECTO");
             try {
                 arduino.sendData("0");
@@ -301,10 +310,46 @@ public class Panel_acceso extends javax.swing.JFrame {
                 Logger.getLogger(Panel_acceso.class.getName()).log(Level.SEVERE, null, ex);
             }
         this.contrasena.setText("");
+        contador++;
+        }
         
-        } 
         
         }
+        
+        while(contador<3);
+        }
+        }
+        
+        if (contador==3)
+        {
+            try {
+                arduino.sendData("3");
+            } catch (Exception ex) {
+                Logger.getLogger(Panel_acceso.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            JOptionPane.showMessageDialog(null,"ALARMA ACTIVADA, INGRESE LA CONTRASEÑA CORRECTA");
+            
+        }
+         
+        
+        
+        
+        
+        
+                
+                    
+                
+        
+        
+        
+        
+        
+         
+        
+        
+  
+
+
         
     }//GEN-LAST:event_enterActionPerformed
 
