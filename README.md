@@ -1,4 +1,4 @@
-# Proyecto_Final
+# JavArduino_Alarma
 Control de acceso con el entorno grafico de Java y un manejo con Arduino
 
 El proyecto se basa en la union de de las herramientas de Java en la progamacion orientda a objetos
