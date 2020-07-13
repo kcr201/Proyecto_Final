@@ -17,3 +17,14 @@ para descargar entrar al siguiente link https://www.arduino.cc/en/main/software.
 El desarrollador que se utilizo fue netbeans, seguir las mismas instrucciones de la linea anterior con arduino. link: https://netbeans.org/downloads/8.2/rc/ 
 
 Para la comunicacion serial entre arduino y java se utilizo la libreria PanamaHitek descargar y agregar como JAR/folder
+
+La lista de componentes electronicos es:
+1 led RGB catodo comun
+1 led rojo
+4 resitencias 220 ohms
+1 modulo buzzer pasivo 
+15 jumpers macho-hembra
+5 jumpers macho-macho
+1 Arduino Uno
+
+Para la conexion de los componentes y Arduino se adjunto en la carpeta de "Proyecto_Final" un esquematico del programa Fritzing, el cual se pueded descargar en https://fritzing.org/download/  
