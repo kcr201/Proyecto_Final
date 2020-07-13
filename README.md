@@ -11,3 +11,9 @@ mensaje diciendo CODIGO CORRECTO, y a su vez con la comunicacion serial de ardui
 un mensaje CODIGO INCORRECTO, y a su vez se encendera un led ROJO.
 El usuario tiene 3 intentos para ingresar el codigo correcto de no ser asi el sistema se pondra en modo alarma y activara un buzzer que emitira un sonido de alarma y encendera un led con la funcion de parpadear, esto se repetira  hasta que se ingrese el codigo correcto.
 Al inicio del programa se encendera un led azul de que el sistema esta activado.
+
+Para que el programa pueda correr de manera adecuada debera descargarse la aplicacion de arduino y contar con los componentes necesario y los conocimientos basicos 
+para descargar entrar al siguiente link https://www.arduino.cc/en/main/software. y dependiendo del sistema operativo elegir el correspondiente.
+El desarrollador que se utilizo fue netbeans, seguir las mismas instrucciones de la linea anterior con arduino. link: https://netbeans.org/downloads/8.2/rc/ 
+
+Para la comunicacion serial entre arduino y java se utilizo la libreria PanamaHitek descargar y agregar como JAR/folder
