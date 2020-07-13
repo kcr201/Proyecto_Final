@@ -21,7 +21,7 @@ Para la comunicacion serial entre arduino y java se utilizo la libreria PanamaHi
 La lista de componentes electronicos es:
 1 led RGB catodo comun
 1 led rojo
-4 resitencias 220 ohms
+4 resistencias 220 ohms
 1 modulo buzzer pasivo 
 15 jumpers macho-hembra
 5 jumpers macho-macho
