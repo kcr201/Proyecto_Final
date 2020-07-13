@@ -24,6 +24,7 @@ public class Panel_acceso extends javax.swing.JFrame {
         
         this.setLocationRelativeTo(null);
         ImageIcon icon;
+        
         icon = new ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"));
         
         int ancho = fondo.getWidth();
