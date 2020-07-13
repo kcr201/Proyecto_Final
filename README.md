@@ -10,3 +10,4 @@ el usuario tendra que ingresar un codigo y clickear en enter, si el codigo es co
 mensaje diciendo CODIGO CORRECTO, y a su vez con la comunicacion serial de arduino encendera un led VERDE, si el codigo es incorrecto emergera
 un mensaje CODIGO INCORRECTO, y a su vez se encendera un led ROJO.
 El usuario tiene 3 intentos para ingresar el codigo correcto de no ser asi el sistema se pondra en modo alarma y activara un buzzer que emitira un sonido de alarma y encendera un led con la funcion de parpadear, esto se repetira  hasta que se ingrese el codigo correcto.
+Al inicio del programa se encendera un led azul de que el sistema esta activado.
