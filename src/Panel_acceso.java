@@ -11,14 +11,7 @@ import panamahitek.Arduino.PanamaHitek_Arduino;
 public class Panel_acceso extends javax.swing.JFrame {
     PanamaHitek_Arduino arduino = new PanamaHitek_Arduino();
     int contador = 0;
-    
-   
-    
-    
-    
-   
-   
-    
+        
     public Panel_acceso() {
         initComponents();
         try {
@@ -306,13 +299,15 @@ public class Panel_acceso extends javax.swing.JFrame {
                 arduino.sendData("0");
             } catch (Exception ex) {
                 Logger.getLogger(Panel_acceso.class.getName()).log(Level.SEVERE, null, ex);
-            }         
+            }  
+            contador=0;
         }  
         
         
         
         if(!cadena.equals(cadena_2))
-        {          
+        {    
+            
             try {
                 arduino.sendData("2");
             } catch (Exception ex) {
@@ -328,7 +323,8 @@ public class Panel_acceso extends javax.swing.JFrame {
                 Logger.getLogger(Panel_acceso.class.getName()).log(Level.SEVERE, null, ex);
             } 
             
-          contador++; 
+          contador++;
+          System.out.println("contador"+contador );
                 
                         if (contador==3) 
                             {
@@ -340,7 +336,7 @@ public class Panel_acceso extends javax.swing.JFrame {
                                                 Logger.getLogger(Panel_acceso.class.getName()).log(Level.SEVERE, null, ex);
                                             }
 
-                                            JOptionPane.showMessageDialog(null,"ALARMA");
+                                            JOptionPane.showMessageDialog(null,"SISTEMA BLOQUEADO");
 
                                             this.contrasena.setText("");
                                             
@@ -349,6 +345,7 @@ public class Panel_acceso extends javax.swing.JFrame {
                                 
                                 
                                  contador=0;
+                                 System.out.println("contador"+contador );
                              }
                        
                         
